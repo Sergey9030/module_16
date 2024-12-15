@@ -25,7 +25,7 @@ async def get_all_users(request: Request) -> HTMLResponse:
     return templates.TemplateResponse("users.html", {"request": request, "users": users})
 
 
-@app.get("/users/{user_id}", response_model=List[User])  # Пользователь по ключу user_id
+@app.get("/user/{user_id}", response_model=User)  # Пользователь по ключу user_id
 async def get_user(request: Request, user_id: int) -> HTMLResponse:
     for u in users:
         if u.id == user_id:
